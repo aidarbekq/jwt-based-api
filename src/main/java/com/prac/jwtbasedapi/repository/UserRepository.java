@@ -1,4 +1,8 @@
 package com.prac.jwtbasedapi.repository;
 
-public interface UserRepository {
+import com.prac.jwtbasedapi.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String name);
 }
