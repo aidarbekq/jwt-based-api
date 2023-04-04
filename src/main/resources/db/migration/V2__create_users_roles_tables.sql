@@ -1,6 +1,3 @@
--- Liquibase formatted SQL
-
--- Create the users table
 CREATE TABLE users (
                        id SERIAL PRIMARY KEY,
                        username VARCHAR(255) NOT NULL,
@@ -30,14 +27,3 @@ CREATE TABLE user_roles (
                             FOREIGN KEY (user_id) REFERENCES users(id),
                             FOREIGN KEY (role_id) REFERENCES roles(id)
 );
-
--- Add an index to improve performance when querying for roles by name
-CREATE INDEX idx_roles_name ON roles (name);
-
--- Add default values for the status column in both tables
-ALTER TABLE users ALTER COLUMN status SET DEFAULT 'ACTIVE';
-ALTER TABLE roles ALTER COLUMN status SET DEFAULT 'ACTIVE';
-
--- Add foreign key constraints to ensure referential integrity
-ALTER TABLE user_roles ADD CONSTRAINT fk_user_roles_user_id FOREIGN KEY (user_id) REFERENCES users(id);
-ALTER TABLE user_roles ADD CONSTRAINT fk_user_roles_role_id FOREIGN KEY (role_id) REFERENCES roles(id);
