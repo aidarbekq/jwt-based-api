@@ -21,12 +21,11 @@ public class UserRestControllerV1 {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id) {
-        User user = userService.findById(id);
 
+        User user = userService.findById(id);
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
         UserDto userDto = UserDto.fromUser(user);
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }

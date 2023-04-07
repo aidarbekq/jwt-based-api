@@ -36,5 +36,4 @@ public class AdminUserDto {
         adminUserDto.setStatus(user.getStatus().name());
         return adminUserDto;
     }
-
 }

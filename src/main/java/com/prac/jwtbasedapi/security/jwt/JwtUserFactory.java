@@ -14,9 +14,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public final class JwtUserFactory {
 
-    public JwtUserFactory () {
-
-    }
+    public JwtUserFactory () {}
 
     public static JwtUser create(User user) {
         log.info("user: {} , {}, {}", user.getUsername(), user.getRoles(), user.getId());
@@ -37,5 +35,4 @@ public final class JwtUserFactory {
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
     }
-
 }

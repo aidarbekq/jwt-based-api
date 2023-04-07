@@ -96,7 +96,6 @@ public class JwtTokenProvider {
         } catch (JwtException | IllegalArgumentException e) {
             throw new JwtAuthenticationException("JWT token is expired or invalid");
         }
-
     }
 
     private List<String> getRoleNames(List<Role> userRoles) {

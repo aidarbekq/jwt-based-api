@@ -3,9 +3,7 @@ package com.prac.jwtbasedapi.security.jwt;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
-import java.util.Date;
 
 public class JwtUser implements UserDetails {
     private final Long id;
@@ -27,7 +25,6 @@ public class JwtUser implements UserDetails {
         this.enabled = enabled;
         this.authorities = authorities;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
